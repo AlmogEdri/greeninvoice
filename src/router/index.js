@@ -1,27 +1,60 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import store from '../store';
 
-Vue.use(VueRouter)
+// Routes
+import Login from '../views/Login.vue';
+import Welcome from '../views/Welcome.vue';
+import UserInfo from '../views/UserInfo.vue';
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+// Middleware
+import auth from '../middleware/auth';
+
+Vue.use(VueRouter);
+
+const routes = [
+	{
+		path: '/login',
+		name: 'login',
+		component: Login
+	},
+	{
+		path: '/',
+		name: 'welcome',
+		component: Welcome,
+		meta: {
+			middleware: [auth]
+		}
+	},
+	{
+		path: '/user-info',
+		name: 'user-info',
+		component: UserInfo,
+		meta: {
+			middleware: [auth]
+		}
+	},
+];
 
 const router = new VueRouter({
-  routes
-})
+	routes
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+	if (!to.meta.middleware) {
+		return next();
+	}
+	const middleware = to.meta.middleware;
+
+	const context = {
+		to,
+		from,
+		next,
+		store
+	};
+	return middleware[0]({
+		...context
+	});
+});
+
+export default router;
