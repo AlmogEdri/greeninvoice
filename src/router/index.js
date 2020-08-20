@@ -19,17 +19,17 @@ const routes = [
 		component: Login
 	},
 	{
-		path: '/',
-		name: 'welcome',
-		component: Welcome,
+		path: '/user-info',
+		name: 'user-info',
+		component: UserInfo,
 		meta: {
 			middleware: [auth]
 		}
 	},
 	{
-		path: '/user-info',
-		name: 'user-info',
-		component: UserInfo,
+		path: '/',
+		name: 'welcome',
+		component: Welcome,
 		meta: {
 			middleware: [auth]
 		}

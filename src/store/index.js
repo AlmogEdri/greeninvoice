@@ -5,13 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
+		loggedIn: false,
 		errorMessage: false,
 		user: {
 			id: null,
 		}
 	},
 	getters: {
-		loggedIn: state => !!state.user.id,
+		loggedIn: state => state.loggedIn,
 		errorMessage: state => state.errorMessage
 	},
 	mutations: {
@@ -19,10 +20,12 @@ export default new Vuex.Store({
 			Object.entries(form).map(([key, value]) => {
 				state.user[key] = value
 			});
+			state.loggedIn = true;
 		},
 
 		logout: state => {
-			state.user = { id: null };
+			state.loggedIn = false;
+			state.user = {};
 		},
 
 		errorMessage: (state, status) => {

@@ -1,13 +1,12 @@
-<template lang='pug'>
-	h1 Welcome page
+<template>
+	<Message />
 </template>
 
 <script>
+	import Message from "../components/WelcomeMessage";
 	export default {
-		
-	}
+		components: {
+			Message,
+		},
+	};
 </script>
-
-<style lang='scss'>
-	
-</style>
