@@ -64,13 +64,13 @@
 		}
 	}
 	.v-btn {
-		border: none !important;
+		border-color: transparent !important;
 
 		&.red--text:hover {
-			border: 1px solid red !important;
+			border-color: red !important;
 		}
 		&.success--text:hover {
-			border: 1px solid $green !important;
+			border-color: $green !important;
 		}
 	}
 </style>
