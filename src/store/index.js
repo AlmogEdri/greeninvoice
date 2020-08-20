@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
+		drawer: null,
 		loggedIn: false,
 		errorMessage: false,
 		user: {
@@ -13,7 +14,7 @@ export default new Vuex.Store({
 	},
 	getters: {
 		loggedIn: state => state.loggedIn,
-		errorMessage: state => state.errorMessage
+		// errorMessage: state => state.errorMessage
 	},
 	mutations: {
 		login: (state, form) => {
@@ -30,6 +31,10 @@ export default new Vuex.Store({
 
 		errorMessage: (state, status) => {
 			state.errorMessage = status;
+		},
+
+		drawer: (state, status) => {
+			state.drawer = status;
 		}
 	},
 	actions: {

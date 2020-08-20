@@ -3,13 +3,17 @@
 		Header
 		v-main
 			router-view
+		drawer
 </template>
 
 <script>
 	import Header from "./components/layout/Header";
+	import Drawer from "./components/layout/Drawer";
+
 	export default {
 		components: {
 			Header,
+			Drawer,
 		},
 	};
 </script>
@@ -37,7 +41,7 @@
 		font-family: bold !important;
 	}
 	.v-sheet.v-card {
-		margin:  0 auto;
+		margin: 0 auto;
 	}
 	.row {
 		margin: 0;
