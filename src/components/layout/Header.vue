@@ -10,7 +10,6 @@
 			<v-spacer />
 			<Buttons :row="true" />
 		</v-container>
-		
 	</v-app-bar>
 </template>
 
@@ -25,6 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
+	@import "../../assets/style/_mixins.scss";
 	.v-app-bar {
 		&.v-app-bar--is-scrolled {
 			background: rgba(white, 0.6) !important;
@@ -36,6 +36,9 @@
 	.v-image {
 		height: 64px;
 		width: 200px;
+		@include sm {
+			width: 150px;
+		}
 	}
 	.container {
 		display: flex;

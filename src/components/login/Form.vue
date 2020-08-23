@@ -1,5 +1,5 @@
 <template>
-	<v-form v-model="valid">
+	<v-form class="mt-14" v-model="valid">
 		<h1 class="page-title">היי, טוב לראות אותך</h1>
 		<v-row class="mb-4" v-for="input of form" :key="input.type">
 			<v-text-field
@@ -21,7 +21,8 @@
 				:disabled="!valid"
 				rounded="rounded"
 				@click="handleSubmit"
-				>כניסה</v-btn>
+				>כניסה</v-btn
+			>
 			<v-btn class="login-google" outlined="outlined" rounded="rounded">
 				כניסה עם גוגל
 				<img src="../../assets/images/google-icon.svg" alt="google icon" />
@@ -100,6 +101,7 @@
 
 <style lang="scss" scoped>
 	@import "../../assets/style/_varibals.scss";
+	@import "../../assets/style/_mixins.scss";
 
 	.v-application {
 		.v-form {
@@ -110,6 +112,10 @@
 				font-size: 54px;
 				margin-bottom: 20px;
 				font-family: bold;
+				
+				@include xs {
+					font-size: 36px;
+				}
 			}
 			.v-text-field {
 				flex-basis: 100%;
@@ -124,6 +130,11 @@
 			.v-btn {
 				height: 55px;
 				transition: 0.2s all;
+
+				@include xs {
+					width: 100% !important;
+					margin: 5px 0;
+				}
 				&.login {
 					&-normal {
 						width: 55%;

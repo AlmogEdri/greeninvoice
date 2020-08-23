@@ -56,7 +56,6 @@
 
 <style lang="scss" scoped>
 	@import "../../assets/style/_varibals.scss";
-	@import "../../assets/style/_mixins.scss";
 
 	.row-view {
 		&.v-sheet.v-list {
