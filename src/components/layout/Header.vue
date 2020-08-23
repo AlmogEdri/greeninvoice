@@ -25,6 +25,7 @@
 
 <style lang="scss" scoped>
 	@import "../../assets/style/_mixins.scss";
+
 	.v-app-bar {
 		&.v-app-bar--is-scrolled {
 			background: rgba(white, 0.6) !important;
@@ -36,7 +37,9 @@
 	.v-image {
 		height: 64px;
 		width: 200px;
+		
 		@include sm {
+			height: 54px;
 			width: 150px;
 		}
 	}

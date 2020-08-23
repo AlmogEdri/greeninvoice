@@ -1,6 +1,6 @@
 <template>
-	<v-form class="mt-14" v-model="valid">
-		<h1 class="page-title">היי, טוב לראות אותך</h1>
+	<v-form v-model="valid">
+		<h1 class="page-title mt-14">היי, טוב לראות אותך</h1>
 		<v-row class="mb-4" v-for="input of form" :key="input.type">
 			<v-text-field
 				v-model="input.model"
