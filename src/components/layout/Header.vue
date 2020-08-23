@@ -23,7 +23,7 @@
 	};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 	@import "../../assets/style/_mixins.scss";
 
 	.v-app-bar {
@@ -34,13 +34,23 @@
 			align-items: center;
 		}
 	}
-	.v-image {
-		height: 64px;
-		width: 200px;
-		
-		@include sm {
-			height: 54px;
-			width: 150px;
+	.v-toolbar__title {
+		.v-image {
+			height: 64px;
+			width: 200px;
+
+			@include sm {
+				height: 54px;
+				width: 150px;
+			}
+		}
+		.v-responsive__sizer {
+			height: 64px;
+			padding-bottom: none;
+
+			@include sm {
+				height: 54px;
+			}
 		}
 	}
 	.container {
